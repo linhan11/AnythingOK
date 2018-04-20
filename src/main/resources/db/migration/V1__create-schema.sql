@@ -1,0 +1,1 @@
+CREATE TABLE loto6infos (id INT PRIMARY KEY AUTO_INCREMENT, lottery_no VARCHAR(30), lottery_date VARCHAR(30));
