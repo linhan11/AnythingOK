@@ -1,4 +1,2 @@
-INSERT INTO loto6infos (lottery_no, lottery_date) VALUES ('第124回', '2018年4月1日');
-INSERT INTO loto6infos (lottery_no, lottery_date) VALUES ('第124回', '2018年4月1日');
-INSERT INTO loto6infos (lottery_no, lottery_date) VALUES ('第123回', '2018年3月25日');
-INSERT INTO loto6infos (lottery_no, lottery_date) VALUES ('第123回', '2018年3月25日');
+INSERT INTO loto_masters (loto_index, loto_date, victory_no) VALUES ('第123回', '2018年3月25日', '1,2,3,4,5,6,7');
+INSERT INTO loto_historys (user_id, loto_index, purchased_no) VALUES ('user1', '第123回', '1,2,3,4,5,6,7');
