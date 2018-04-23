@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .formLogin().loginProcessingUrl("/login")
                     .loginPage("/loginForm")
                     .failureUrl("/loginForm?error")
-                    .defaultSuccessUrl("/customers", true)
+                    .defaultSuccessUrl("/loto6infos", true)
                     .usernameParameter("username").passwordParameter("password")
             .and()
             .logout()
