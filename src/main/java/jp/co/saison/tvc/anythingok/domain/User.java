@@ -26,7 +26,9 @@ public class User {
     @Id
     private String username;
     @JsonIgnore
-    private String encodedPassword;
+    private String user_email;
+    @JsonIgnore
+    private String encoded_password;
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private List<LotoHistory> loto_historys;
