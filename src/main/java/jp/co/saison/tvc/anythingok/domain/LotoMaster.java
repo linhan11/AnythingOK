@@ -19,7 +19,10 @@ public class LotoMaster {
     @GeneratedValue
     private String loto_index;
     private String loto_date;
-    private String victory_no;
+    private String victory_number;
+    private String victory_amount;
+    private String victory_people;
+    private String carry_over;
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(nullable = true, name = "username")
 //    private User user;
