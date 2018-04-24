@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import jp.co.saison.tvc.anythingok.domain.Loto6info;
+import jp.co.saison.tvc.anythingok.domain.LotoHistory;
 import jp.co.saison.tvc.anythingok.service.LoginUserDetails;
-import jp.co.saison.tvc.anythingok.service.Loto6infoService;
+import jp.co.saison.tvc.anythingok.service.LotoHistoryService;
 
 @Controller
-@RequestMapping("loto6infos")
-public class Loto6infoController {
+@RequestMapping("loto_historys")
+public class LotoHistoryController {
     @Autowired
-    Loto6infoService loto6infoService;
+    LotoHistoryService lotoHistoryService;
 
     @ModelAttribute
     Loto6infoForm setUpForm() {
@@ -32,9 +32,9 @@ public class Loto6infoController {
 
     @GetMapping
     String list(Model model) {
-        List<Loto6info> loto6infos = loto6infoService.findAll();
-        model.addAttribute("loto6infos", loto6infos);
-        return "loto6infos/list";
+        List<LotoHistory> lotoHistorys = lotoHistoryService.findAll();
+        model.addAttribute("loto_historys", lotoHistorys);
+        return "loto_historys/list";
     }
 
     @PostMapping(path = "create")
@@ -43,17 +43,17 @@ public class Loto6infoController {
         if (result.hasErrors()) {
             return list(model);
         }
-        Loto6info loto6info = new Loto6info();
-        BeanUtils.copyProperties(form, loto6info);
-        loto6infoService.create(loto6info, userDetails.getUser());
-        return "redirect:/loto6infos";
+        LotoHistory lotoHistory = new LotoHistory();
+        BeanUtils.copyProperties(form, lotoHistory);
+        lotoHistoryService.create(lotoHistory, userDetails.getUser());
+        return "redirect:/loto_historys";
     }
 
     @GetMapping(path = "edit", params = "form")
     String editForm(@RequestParam Integer id, Loto6infoForm form) {
-        Loto6info loto6info = loto6infoService.findOne(id);
-        BeanUtils.copyProperties(loto6info, form);
-        return "loto6infos/edit";
+    	LotoHistory lotoHistory = lotoHistoryService.findOne(id);
+        BeanUtils.copyProperties(lotoHistory, form);
+        return "loto_historys/edit";
     }
 
     @PostMapping(path = "edit")
@@ -62,21 +62,21 @@ public class Loto6infoController {
         if (result.hasErrors()) {
             return editForm(id, form);
         }
-        Loto6info loto6info = new Loto6info();
-        BeanUtils.copyProperties(form, loto6info);
-        loto6info.setId(id);
-        loto6infoService.update(loto6info, userDetails.getUser());
-        return "redirect:/loto6infos";
+        LotoHistory lotoHistory = new LotoHistory();
+        BeanUtils.copyProperties(form, lotoHistory);
+        lotoHistory.setId(id);
+        lotoHistoryService.update(lotoHistory, userDetails.getUser());
+        return "redirect:/loto_historys";
     }
 
     @GetMapping(path = "edit", params = "goToTop")
     String goToTop() {
-        return "redirect:/loto6infos";
+        return "redirect:/loto_historys";
     }
 
     @PostMapping(path = "delete")
     String delete(@RequestParam Integer id) {
-        loto6infoService.delete(id);
-        return "redirect:/loto6infos";
+    	lotoHistoryService.delete(id);
+        return "redirect:/loto_historys";
     }
 }

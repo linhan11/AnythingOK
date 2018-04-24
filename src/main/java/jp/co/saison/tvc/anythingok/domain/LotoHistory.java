@@ -16,14 +16,23 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "loto6infos")
-public class Loto6info {
+@Table(name = "loto_historys")
+public class LotoHistory {
     @Id
     @GeneratedValue
     private Integer id;
-    private String lotteryNo;
-    private String lotteryDate;
+    private String user_id;
+    private String loto_index;
+    private String purchased_no;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = true, name = "username")
     private User user;
+//    @Id
+//    @GeneratedValue
+//    private Integer id;
+//    private String lotteryNo;
+//    private String lotteryDate;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(nullable = true, name = "username")
+//    private User user;
 }
