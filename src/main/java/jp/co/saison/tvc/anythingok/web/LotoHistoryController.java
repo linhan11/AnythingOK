@@ -24,6 +24,7 @@ import jp.co.saison.tvc.anythingok.service.LotoHistoryService;
 public class LotoHistoryController {
     @Autowired
     LotoHistoryService lotoHistoryService;
+    LotoMasterService lotoMasterService;
 
     @ModelAttribute
     Loto6infoForm setUpForm() {
@@ -78,5 +79,12 @@ public class LotoHistoryController {
     String delete(@RequestParam Integer id) {
     	lotoHistoryService.delete(id);
         return "redirect:/loto_historys";
+    }
+
+    @GetMapping(path = "tk")
+    String tk(Model model) {
+        List<LotoMaster> lotoMasters = lotoMasterService.findAll();
+        model.addAttribute("lotoMasters", lotoMasters);
+        return "loto_historys/tk";
     }
 }
