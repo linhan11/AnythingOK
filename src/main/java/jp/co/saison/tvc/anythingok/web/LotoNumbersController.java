@@ -1,12 +1,6 @@
 package jp.co.saison.tvc.anythingok.web;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.IntStream;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,23 +9,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import jp.co.saison.tvc.anythingok.service.LotoNumbersService;
+
 @Controller
 public class LotoNumbersController {
 
-	private Map<String,String> getPredictingNumbers(){
-    	List<Integer> seeds = new ArrayList<>();
-    	IntStream.rangeClosed(1, 43).forEach(seeds::add);
-    	Collections.shuffle(seeds);
+	@Autowired
+	private LotoNumbersService service;
 
-    	Map<String, String> numbers = new LinkedHashMap<String, String>();
-    	seeds.stream().forEach(i -> numbers.put(String.valueOf(i), String.valueOf(i)));
-    	return numbers;
-	}
+    @ModelAttribute
+    LotoNumbersChoiceForm setUpForm() {
+        return new LotoNumbersChoiceForm();
+    }
 
     @GetMapping("/loto_numbers/choice")
 	public String choice(LotoNumbersChoiceForm form, Model model) {
-    	model.addAttribute("getPredictingNumbers", getPredictingNumbers());
-    	model.addAttribute("lotoNumbersChoiceForm", form);
+    	model.addAttribute("predictingNumbers", service.getPredictingNumbers());
+    	model.addAttribute("form", form);
+    	model.addAttribute("list", service.getList());
 		return "loto_numbers/choice";
 	}
 
@@ -40,6 +35,7 @@ public class LotoNumbersController {
         if (result.hasErrors()) {
             return choice(form, model);
         }
+        service.addList(form);
     	return "redirect:/loto_numbers/choice";
     }
 }
