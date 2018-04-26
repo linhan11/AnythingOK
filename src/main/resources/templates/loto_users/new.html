@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>ユーザ情報参照</title>
+    <title>ユーザ情報登録</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
@@ -14,9 +14,9 @@
     <h1>ロト6 予想＆当選管理システム</h1>
 
     <div class="col-sm-12">
-        <form th:action="@{/loto_users/edit}" th:object="${lotoUserInfoForm}" class="form-horizontal" method="post">
+        <form th:action="@{/loto_users/new}" th:object="${lotoUserInfoForm}" class="form-horizontal" method="post">
             <fieldset>
-                <legend>ユーザ情報参照</legend>
+                <legend>ユーザ情報登録</legend>
                 <div class="form-group" th:classappend="${#fields.hasErrors('username')}? 'has-error has-feedback'">
                     <label for="username" class="col-sm-2 control-label">名前</label>
 
@@ -49,7 +49,8 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <input type="submit" class="btn btn-default" name="goToTop" value="戻る">
+                        <input type="submit" class="btn btn-default" name="goToLogin" value="戻る">
+                        <input type="submit" class="btn btn-primary" name="create" value="新規登録">
                     </div>
                 </div>
             </fieldset>

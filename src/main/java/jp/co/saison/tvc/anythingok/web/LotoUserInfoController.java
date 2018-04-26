@@ -1,5 +1,7 @@
 package jp.co.saison.tvc.anythingok.web;
 
+import java.security.Principal;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -35,24 +37,22 @@ public class LotoUserInfoController {
         return "loto_users/edit";
     }
 
-    @GetMapping(path = "create")
+    @GetMapping(path = "new")
     String createForm1(Model model) {
         User lotoUser = new User();
         model.addAttribute("loto_users", lotoUser);
-        return "loto_users/edit";
+        return "loto_users/new";
     }
 
     @GetMapping(path = "edit")
-    String edit(Model model) {
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        String name = auth.getName();
-    	String name = "user1";
-        User lotoUser = lotoUserInfoService.findOne(name);
-        model.addAttribute("loto_users", lotoUser);
+    String edit(Model model, Principal principal) {
+    	Authentication auth = (Authentication)principal;
+        User lotoUser = lotoUserInfoService.findOne(auth.getName());
+        model.addAttribute("lotoUserInfoForm", lotoUser);
         return "loto_users/edit";
     }
 
-    @PostMapping(path = "create")
+    @PostMapping(path = "new")
     String create111(@Validated LotoUserInfoForm form, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return createForm1(model);
@@ -60,33 +60,16 @@ public class LotoUserInfoController {
         User lotoUser = new User();
         BeanUtils.copyProperties(form, lotoUser);
         lotoUserInfoService.create(lotoUser);
-        return "loto_users/edit";
+        return "loto_users/new";
     }
 
     @GetMapping(path = "edit", params = "user-form")
     String editForm1(String username, LotoUserInfoForm form) {
-//    	LotoUser lotoUser = lotoUserInfoService.findOne(username);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
         User lotoUser = lotoUserInfoService.findOne(name);
-//        lotoUser.setUsername(name);
-//        lotoUser.setUser_email("a@a111");
-//        lotoUser.setEncoded_password("1111111XXXXXXXXXXXXX");
-//       lotoUser.setEncoded_password("*********************");
         BeanUtils.copyProperties(lotoUser, form);
-        form.setEncoded_password("**********");
         return "loto_users/edit";
-    }
-
-    @GetMapping(path = "edit", params = "new-form")
-    String createForm1(String username, LotoUserInfoForm form) {
-//    	LotoUser lotoUser = lotoUserInfoService.findOne(username);
-        User lotoUser = new User();
-//        lotoUser.setUsername(name);
-//        lotoUser.setUser_email("a@a111");
-//        lotoUser.setEncoded_password("1111111XXXXXXXXXXXXX");
-        BeanUtils.copyProperties(lotoUser, form);
-        return "loginForm";
     }
 
     @RequestMapping(path = "edit", params = "goToTop")
@@ -94,7 +77,12 @@ public class LotoUserInfoController {
         return "redirect:/loto_historys";
     }
 
-    @RequestMapping(path = "edit", params = "create")
+    @RequestMapping(path = "new", params = "goToLogin")
+    String goToLogin() {
+        return "redirect:/loginForm";
+    }
+
+    @RequestMapping(path = "new", params = "create")
     String create(@Validated LotoUserInfoForm form, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return createForm1(model);
@@ -104,6 +92,6 @@ public class LotoUserInfoController {
         String psStr = lotoUser.getEncoded_password();
         lotoUser.setEncoded_password(new Pbkdf2PasswordEncoder().encode(psStr));
         lotoUserInfoService.create(lotoUser);
-        return "redirect:/loto_historys";
+        return "redirect:/loginForm";
     }
 }
