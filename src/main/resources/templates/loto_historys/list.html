@@ -9,13 +9,20 @@
 
 <div class="container">
     <h1>ロト6 予想＆当選管理システム</h1>
-    <p>
-        <span sec:authentication="principal.user.username">duke</span>さんログイン中。
-    </p>
-    <form th:action="@{/loto_users/edit}" method="get">
-        <input type="submit" class="btn btn-default btn-xs" name="user-form" value="ユーザ情報参照">
-    </form>
-    <div class="col-sm-12">
+		<table>
+			<tr>
+				<th>
+				<span sec:authentication="principal.user.username">duke</span>さんログイン中。
+				</th>
+				<th>
+					<form th:action="@{/loto_users/edit}" method="get">
+						<input type="submit" class="btn btn-default btn-xs"
+							name="user-form" value="ユーザ情報参照">
+					</form>
+				</th>
+			</tr>
+		</table>
+		<div class="col-sm-12">
         <form th:action="@{/loto_historys/create}" th:object="${loto6infoForm}" class="form-horizontal" method="post">
             <fieldset>
                 <legend>ロト6 購買情報作成</legend>
