@@ -9,4 +9,11 @@ CREATE TABLE loto_masters (
 	carry_over VARCHAR(255),
 );
 
-CREATE TABLE loto_historys (id INT PRIMARY KEY AUTO_INCREMENT, user_id VARCHAR(30), loto_index VARCHAR(30), purchased_no VARCHAR(30));
+CREATE TABLE loto_historys (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	user_id VARCHAR(30),
+	loto_index VARCHAR(30),
+	loto_date VARCHAR(30),
+	victory_number VARCHAR(30),
+	purchased_no VARCHAR(30)
+	);
