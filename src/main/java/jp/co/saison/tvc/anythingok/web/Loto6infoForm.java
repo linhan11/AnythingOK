@@ -9,10 +9,12 @@ import lombok.Data;
 public class Loto6infoForm {
     @NotNull
     @Size(min = 1, max = 127)
-//    private String lotteryNo;
     private String loto_index;
     @NotNull
     @Size(min = 1, max = 127)
-//    private String lotteryDate;
     private String purchased_no;
+
+    private String loto_date;
+
+    private String victory_number;
 }
