@@ -24,103 +24,14 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-6">
-			<form th:action="@{/loto_numbers/create}" class="form-horizontal" method="post">
+ 			<form th:action="@{/loto_numbers/create}" class="form-horizontal" method="post">
 				<fieldset>
-				<!-- <legend>予想ナンバー</legend> -->
-
-				<!-- ex1
-				<p>ex1</p>
-				<div data-toggle='buttons'>
-						<label th:each="number, stat : ${predictingNumbers}" class='btn btn-primary btn-lg' >
-						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-				</div> -->
-				<!-- ex2
-				<p>ex2</p>
-				<div data-toggle='buttons'>
-				<span>
-						<label th:each="number, stat : ${predictingNumbers}" class='btn btn-primary btn-lg' >
-						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-				</span>
-				</div> -->
-				<!-- ex3
-				<p>ex3</p>
-				<div data-toggle='buttons'>
-				<span th:each="number, stat : ${predictingNumbers}">
-						<label  th:if="${stat.index} lt 6" class='btn btn-primary btn-lg' >
-						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-						<label  th:unless="${stat.index} lt 6" class='btn btn-info btn-sm' >
-						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-				</span>
-				</div> -->
-				<!-- ex4
-				<p>ex4</p>
-				<div data-toggle='buttons'>
-						<label th:each="number, stat : ${predictingNumbers}" >
-						<input  class='btn btn-primary btn-lg' type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-				</div> -->
-				<!-- ex5
-				<p>ex5</p>
-				<div class="btn-group-toggle" data-toggle="buttons">
-						<span th:each="number, stat : ${predictingNumbers}" >
-						<label class="btn btn-secondary active">
-						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-						</span>
-				</div> -->
-				<!-- ex6
-				<p>ex6</p>
-				<div class="btn-group-toggle" data-toggle="buttons">
-						<span th:each="number, stat : ${predictingNumbers}" >
-						<label  th:if="${stat.index} lt 6" class='btn btn-primary btn-lg' >
-						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-						<label  th:unless="${stat.index} lt 6" class='btn btn-info btn-sm' >
-						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-						</span>
-				</div> -->
-				<!-- ex7
-				<p>ex7</p>
-				<p class="animated infinite jello" >ex7</p>
-				<div class="btn-group-toggle" data-toggle="buttons">
-						<label th:each="number, stat : ${predictingNumbers}" th:if="${stat.index} lt 6" class='btn btn-primary btn-lg' >
-						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-						<label th:each="number, stat : ${predictingNumbers}" th:unless="${stat.index} lt 6" class='btn btn-default btn-sm' >
-						<input  type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-				</div> -->
-				<!-- <p>ex8</p>
-				<div class="btn-group-toggle" data-toggle="buttons">
-						<label th:each="number, stat : ${predictingNumbers}" th:if="${stat.index} lt 6" class='btn btn-primary btn-lg animated infinite pulse' >
-						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-						<label th:each="number, stat : ${predictingNumbers}" th:unless="${stat.index} lt 6" class='btn btn-default btn-sm fuwafuwa' >
-						<input  type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-				</div> -->
-				<!-- <p>ex9</p>
-				<div class="btn-group-toggle" data-toggle="buttons">
-						<label th:each="number, stat : ${predictingNumbers}" th:if="${stat.index} lt 6" class='btn btn-primary btn-lg' >
+				<div class="btn-group-toggle" data-toggle="buttons" id="numbers_group">
+						<label th:each="number, stat : ${predictingNumbers}" th:if="${stat.index} lt 6" class='btn btn-primary btn-lg btn-circle' >
 						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
 						</label>
 						<p></p>
-						<label th:each="number, stat : ${predictingNumbers}" th:unless="${stat.index} lt 6" class='btn btn-default btn-sm' >
-						<input  type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-				</div>
-				<p></p> -->
-				<div class="btn-group-toggle" data-toggle="buttons">
-						<label th:each="number, stat : ${predictingNumbers}" th:if="${stat.index} lt 6" class='btn btn-primary btn-circle btn-lg' >
-						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
-						</label>
-						<p></p>
-						<label th:each="number, stat : ${predictingNumbers}" th:unless="${stat.index} lt 6" class='btn btn-default btn-circle btn-sm' >
+						<label th:each="number, stat : ${predictingNumbers}" th:unless="${stat.index} lt 6" class='btn btn-default btn-sm btn-circle' >
 						<input  type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
 						</label>
 				</div>
@@ -150,5 +61,7 @@
         th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="/app.js"
+        th:src="@{/app.js}"></script>
 </body>
 </html>
