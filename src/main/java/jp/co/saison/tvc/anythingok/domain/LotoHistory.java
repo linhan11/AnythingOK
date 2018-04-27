@@ -27,12 +27,6 @@ public class LotoHistory {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = true, name = "username")
     private User user;
-//    @Id
-//    @GeneratedValue
-//    private Integer id;
-//    private String lotteryNo;
-//    private String lotteryDate;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(nullable = true, name = "username")
-//    private User user;
+    private String loto_date;
+    private String victory_number;
 }
