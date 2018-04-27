@@ -25,5 +25,7 @@ public class LotoMasterService {
         return lotoMasterRepository.findOne(id);
     }
 
-
+    public Page<LotoMaster> findAll(Pageable pageable) {
+        return lotoMasterRepository.findAll(pageable);
+    }
 }
