@@ -23,15 +23,5 @@ public class LotoMaster {
     private String victory_amount;
     private String victory_people;
     private String carry_over;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(nullable = true, name = "username")
-//    private User user;
-//    @Id
-//    @GeneratedValue
-//    private Integer id;
-//    private String lotteryNo;
-//    private String lotteryDate;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(nullable = true, name = "username")
-//    private User user;
+
 }
