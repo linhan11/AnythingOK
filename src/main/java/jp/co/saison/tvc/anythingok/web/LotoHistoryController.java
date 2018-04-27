@@ -73,6 +73,13 @@ public class LotoHistoryController {
         return "loto_historys/edit";
     }
 
+    @GetMapping(path = "edit", params = "new")
+    String createFrom(Loto6infoForm form) {
+        LotoHistory lotoHistory = new LotoHistory();
+        BeanUtils.copyProperties(lotoHistory, form);
+        return "loto_historys/edit";
+    }
+
     @PostMapping(path = "edit")
     String edit(@RequestParam Integer id, @Validated Loto6infoForm form, BindingResult result,
                 @AuthenticationPrincipal LoginUserDetails userDetails) {

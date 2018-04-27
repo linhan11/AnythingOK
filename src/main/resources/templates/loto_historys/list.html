@@ -22,8 +22,13 @@
 				</th>
 			</tr>
 		</table>
-		<!--
+
 		<div class="col-sm-12">
+            <form class="form-signin" th:action="@{/loto_historys/edit}" method="get">
+		        <input type="submit" class="btn btn-primary" name="new" value="新規作成">
+		        <input type="hidden" name="id" th:value="0">
+		    </form>
+		<!--
         <form th:action="@{/loto_historys/create}" th:object="${loto6infoForm}" class="form-horizontal" method="post">
             <fieldset>
                 <legend>ロト6 購買情報作成</legend>
@@ -54,7 +59,7 @@
                 </div>
             </fieldset>
         </form>
-          -->
+        -->
         <hr/>
         <table class="table table-striped table-bordered table-condensed">
             <tr>

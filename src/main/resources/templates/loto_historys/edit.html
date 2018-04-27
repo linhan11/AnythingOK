@@ -26,6 +26,8 @@
                                class="form-control" value="山田">
                         <span th:if="${#fields.hasErrors('loto_index')}" th:errors="*{loto_index}"
                               class="help-block">error!</span>
+                        <a href="/loto_masters/list.html">ロト6一覧参照</a>
+                        <!-- <input type="submit" class="btn btn-default" name="search" value="ロト6一覧参照">  -->
                     </div>
                 </div>
                 <div class="form-group" th:classappend="${#fields.hasErrors('purchased_no')}? 'has-error has-feedback'">

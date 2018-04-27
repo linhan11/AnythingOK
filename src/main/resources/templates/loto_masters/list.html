@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<head th:replace="common/header :: head"></head>
+</head>
+<body>
+<div th:replace="common/header :: top-navigation">...</div>
+
+<div class="container">
+    <h1>ロト6 実施一覧</h1>
+		<div class="col-sm-12">
+        <hr/>
+
+        <div th:fragment='paginationbar'>
+            <ul>
+                <li th:class="${page.first} ? 'disabled':''" style="display:inline">
+                    <span th:if="${page.first}">←先頭</span>
+                    <a th:if="${not page.first}" th:href="@{${url}(page=0)}">←先頭</a>
+                </li>
+                <li th:each='i : ${#numbers.sequence(0, page.totalPages-1)}' th:class="(${i}==${page.number})? 'active' : ''" style="display:inline">
+                    <span th:if='${i}==${page.number}' th:text='${i+1}'>1</span>
+                    <a th:if='${i}!=${page.number}' th:href="@{${url}(page=${i})}">
+                        <span th:text='${i+1}'>1</span>
+                    </a>
+                </li>
+                <li th:class="${page.last} ? 'disabled':''" style="display:inline">
+                    <span th:if="${page.last}">末尾➝</span>
+                    <a th:if="${not page.last}" th:href="@{${url}(page=(${page.totalPages}-1))}">末尾➝</a>
+                </li>
+            </ul>
+        </div>
+
+        <table class="table table-striped table-bordered table-condensed">
+            <tr>
+                <th>回数</th>
+                <th>抽選日</th>
+                <th>当選番号</th>
+            </tr>
+            <tr th:each="loto_master : ${loto_masters}">
+                <td th:text="${loto_master.loto_index}">第124回</td>
+                <td th:text="${loto_master.loto_date}">2018年4月1日</td>
+                <td th:text="${loto_master.victory_number}">1,2,3,4,5</td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+        th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+</body>
+</html>
