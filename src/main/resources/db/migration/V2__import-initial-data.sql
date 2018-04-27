@@ -1,8 +1,8 @@
-INSERT INTO loto_historys (user_id, loto_index, loto_date, purchased_no, victory_number) VALUES ('user1', '第123回', '2018/10/15', '1,2,3,4,5,6,7', '2,8,10,13,27,30,39');
-INSERT INTO loto_historys (user_id, loto_index, loto_date, purchased_no, victory_number) VALUES ('user2', '第123回', '2018/10/15', '1,2,3,4,5,6,7', '2,8,10,13,27,30,39');
-INSERT INTO loto_historys (user_id, loto_index, loto_date, purchased_no, victory_number) VALUES ('user2', '第124回', '2018/10/15', '1,2,3,4,5,6,7', '2,8,10,13,27,30,39');
-INSERT INTO loto_historys (user_id, loto_index, loto_date, purchased_no, victory_number) VALUES ('user1', '第124回', '2018/10/15', '1,2,3,4,5,6,7', '2,8,10,13,27,30,39');
-INSERT INTO loto_historys (user_id, loto_index, loto_date, purchased_no, victory_number) VALUES ('user1', '第125回', '2018/10/15', '1,2,3,4,5,6,7', '2,8,10,13,27,30,39');
+INSERT INTO loto_historys (user_id, loto_index, loto_date, purchased_no, victory_number) VALUES ('user1', '123', '2018/10/15', '1,2,3,4,5,6,7', '2,8,10,13,27,30,39');
+INSERT INTO loto_historys (user_id, loto_index, loto_date, purchased_no, victory_number) VALUES ('user2', '123', '2018/10/15', '1,2,3,4,5,6,7', '2,8,10,13,27,30,39');
+INSERT INTO loto_historys (user_id, loto_index, loto_date, purchased_no, victory_number) VALUES ('user2', '124', '2018/10/15', '1,2,3,4,5,6,7', '2,8,10,13,27,30,39');
+INSERT INTO loto_historys (user_id, loto_index, loto_date, purchased_no, victory_number) VALUES ('user1', '124', '2018/10/15', '1,2,3,4,5,6,7', '2,8,10,13,27,30,39');
+INSERT INTO loto_historys (user_id, loto_index, loto_date, purchased_no, victory_number) VALUES ('user1', '125', '2018/10/15', '1,2,3,4,5,6,7', '2,8,10,13,27,30,39');
 
 INSERT INTO loto_masters (loto_index, loto_date, victory_number, victory_amount, victory_people, carry_over) VALUES ('1', '2000/10/05', '2,8,10,13,27,30,39', '45513600,40961900,375200,6900,1000', '2,2,262,12413,174452', '0');
 INSERT INTO loto_masters (loto_index, loto_date, victory_number, victory_amount, victory_people, carry_over) VALUES ('2', '2000/10/12', '1,9,16,20,21,43,5', '0,13188800,568100,11500,1000', '0,7,195,8426,144860', '102580607');

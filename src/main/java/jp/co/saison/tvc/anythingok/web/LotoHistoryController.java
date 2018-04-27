@@ -19,14 +19,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jp.co.saison.tvc.anythingok.domain.LotoHistory;
+import jp.co.saison.tvc.anythingok.domain.LotoMaster;
 import jp.co.saison.tvc.anythingok.service.LoginUserDetails;
 import jp.co.saison.tvc.anythingok.service.LotoHistoryService;
+import jp.co.saison.tvc.anythingok.service.LotoMasterService;;
 
 @Controller
 @RequestMapping("loto_historys")
 public class LotoHistoryController {
     @Autowired
     LotoHistoryService lotoHistoryService;
+    @Autowired
+    LotoMasterService lotoMasterService;
 
     @ModelAttribute
     Loto6infoForm setUpForm() {
@@ -57,6 +61,14 @@ public class LotoHistoryController {
     @GetMapping(path = "edit", params = "form")
     String editForm(@RequestParam Integer id, Loto6infoForm form) {
     	LotoHistory lotoHistory = lotoHistoryService.findOne(id);
+    	LotoMaster lotoMaster = lotoMasterService.findOne(lotoHistory.getLoto_index());
+        if (lotoMaster == null) {
+        	lotoHistory.setLoto_date("");
+        	lotoHistory.setVictory_number("");
+        }else {
+        	lotoHistory.setLoto_date(lotoMaster.getLoto_date());
+        	lotoHistory.setVictory_number(lotoMaster.getVictory_number());
+        }
         BeanUtils.copyProperties(lotoHistory, form);
         return "loto_historys/edit";
     }
