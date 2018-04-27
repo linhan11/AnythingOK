@@ -1,6 +1,9 @@
 package jp.co.saison.tvc.anythingok.web;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +19,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jp.co.saison.tvc.anythingok.domain.LotoHistory;
+import jp.co.saison.tvc.anythingok.domain.LotoMaster;
 import jp.co.saison.tvc.anythingok.service.LoginUserDetails;
 import jp.co.saison.tvc.anythingok.service.LotoHistoryService;
+import jp.co.saison.tvc.anythingok.service.LotoMasterService;
 
 @Controller
 @RequestMapping("loto_historys")
 public class LotoHistoryController {
     @Autowired
     LotoHistoryService lotoHistoryService;
+    @Autowired
     LotoMasterService lotoMasterService;
 
     @ModelAttribute
@@ -84,7 +90,15 @@ public class LotoHistoryController {
     @GetMapping(path = "tk")
     String tk(Model model) {
         List<LotoMaster> lotoMasters = lotoMasterService.findAll();
-        model.addAttribute("lotoMasters", lotoMasters);
+        Map<String, Long> victoryNumbers = lotoMasters.stream()
+        		.map(e -> e.getVictory_number().split(","))
+        		.flatMap(Arrays::stream)
+        		.collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+        List<String> sortedKeys = victoryNumbers.entrySet().stream()
+        		.sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+        		.map(e -> e.getKey())
+        		.collect(Collectors.toList());
+        model.addAttribute("lotoMasters", sortedKeys);
         return "loto_historys/tk";
     }
 }
