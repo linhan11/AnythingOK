@@ -23,6 +23,14 @@ public class LotoHistoryService {
         return lotoHistoryRepository.findAllOrderByName();
     }
 
+//    public List<LotoHistory> findByUserName() {
+//        return lotoHistoryRepository.findByUserName();
+//    }
+
+    public List<LotoHistory> findByUserName(String username) {
+        return lotoHistoryRepository.findByUserName(username);
+    }
+
     public Page<LotoHistory> findAll(Pageable pageable) {
         return lotoHistoryRepository.findAllOrderByName(pageable);
     }
@@ -33,11 +41,13 @@ public class LotoHistoryService {
 
     public LotoHistory create(LotoHistory lotohistory, User user) {
     	lotohistory.setUser(user);
+    	lotohistory.setUser_id(user.getUsername());
         return lotoHistoryRepository.save(lotohistory);
     }
 
     public LotoHistory update(LotoHistory lotohistory, User user) {
     	lotohistory.setUser(user);
+    	lotohistory.setUser_id(user.getUsername());
         return lotoHistoryRepository.save(lotohistory);
     }
 

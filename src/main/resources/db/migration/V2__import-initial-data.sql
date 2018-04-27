@@ -1,4 +1,9 @@
 INSERT INTO loto_historys (user_id, loto_index, purchased_no) VALUES ('user1', '第123回', '1,2,3,4,5,6,7');
+INSERT INTO loto_historys (user_id, loto_index, purchased_no) VALUES ('user2', '第201回', '2,7,3,4,5,6,7');
+INSERT INTO loto_historys (user_id, loto_index, purchased_no) VALUES ('user1', '第124回', '1,2,3,4,5,6,7');
+INSERT INTO loto_historys (user_id, loto_index, purchased_no) VALUES ('user2', '第202回', '2,7,3,4,5,6,7');
+INSERT INTO loto_historys (user_id, loto_index, purchased_no) VALUES ('user1', '第120回', '1,2,3,4,5,6,7');
+INSERT INTO loto_historys (user_id, loto_index, purchased_no) VALUES ('user2', '第203回', '2,7,3,4,5,6,7');
 
 
 INSERT INTO loto_masters (loto_index, loto_date, victory_number, victory_amount, victory_people, carry_over) VALUES ('1', '2000/10/05', '2,8,10,13,27,30,39', '45513600,40961900,375200,6900,1000', '2,2,262,12413,174452', '0');

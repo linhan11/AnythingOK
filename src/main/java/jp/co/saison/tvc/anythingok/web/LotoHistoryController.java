@@ -1,10 +1,13 @@
 package jp.co.saison.tvc.anythingok.web;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,14 +35,16 @@ public class LotoHistoryController {
 
     @GetMapping
     String list(Model model) {
-        List<LotoHistory> lotoHistorys = lotoHistoryService.findAll();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        List<LotoHistory> lotoHistorys = lotoHistoryService.findByUserName(name);
         model.addAttribute("loto_historys", lotoHistorys);
         return "loto_historys/list";
     }
 
     @PostMapping(path = "create")
     String create(@Validated Loto6infoForm form, BindingResult result, Model model,
-                  @AuthenticationPrincipal LoginUserDetails userDetails) {
+                  @AuthenticationPrincipal LoginUserDetails userDetails, Principal principal) {
         if (result.hasErrors()) {
             return list(model);
         }
