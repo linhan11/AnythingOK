@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.w3c.dom.html.HTMLIsIndexElement;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,4 +31,12 @@ public class LotoHistory {
     private User user;
     private String loto_date;
     private String victory_number;
+    
+	public LotoHistory(User user, String loto_index) {
+		this.user_id = user.getUsername();
+		this.user = user;
+		this.loto_index = loto_index;
+	}
+    
+    
 }

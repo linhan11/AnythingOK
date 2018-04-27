@@ -39,6 +39,10 @@ public class LotoHistoryService {
         return lotoHistoryRepository.findOne(id);
     }
 
+    public LotoHistory create(LotoHistory lotohistory) {
+        return lotoHistoryRepository.save(lotohistory);
+    }
+    
     public LotoHistory create(LotoHistory lotohistory, User user) {
     	lotohistory.setUser(user);
     	lotohistory.setUser_id(user.getUsername());
