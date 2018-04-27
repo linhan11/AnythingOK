@@ -32,4 +32,8 @@ public class LotoNumbersService {
 	public void addList(LotoNumbersChoiceForm form) {
 		list.add(new LotoNumbersChoiceForm(form));
 	}
+
+	public void buy() {
+		list.clear();
+	}
 }

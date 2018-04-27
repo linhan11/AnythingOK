@@ -38,4 +38,13 @@ public class LotoNumbersController {
         service.addList(form);
     	return "redirect:/loto_numbers/choice";
     }
+
+    @PostMapping("/loto_numbers/buy")
+    String buy(@Validated @ModelAttribute LotoNumbersChoiceForm form, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return choice(form, model);
+        }
+        service.buy();
+    	return "redirect:/loto_numbers/choice";
+    }
 }
