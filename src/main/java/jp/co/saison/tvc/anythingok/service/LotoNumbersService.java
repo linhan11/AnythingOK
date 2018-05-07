@@ -44,6 +44,10 @@ public class LotoNumbersService {
 		list.clear();
 	}
 
+	public void delete(Integer index) {
+		list.remove(index.intValue());
+	}
+
 	public LotoMaster getLoto() {
 		return loto;
 	}
