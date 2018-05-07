@@ -36,6 +36,7 @@ public class LotoNumbersController {
         if (result.hasErrors()) {
             return choice(form, model);
         }
+        
         service.addList(form);
     	return "redirect:/loto_numbers/choice";
     }

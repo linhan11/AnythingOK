@@ -36,6 +36,7 @@ public class LotoNumbersService {
 	}
 
 	public void addList(LotoNumbersChoiceForm form) {
+		form.QuickPick();
 		list.add(new LotoNumbersChoiceForm(form));
 	}
 
