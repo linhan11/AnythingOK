@@ -7,15 +7,21 @@ import java.util.stream.IntStream;
 
 import org.springframework.stereotype.Service;
 
+import jp.co.saison.tvc.anythingok.domain.LotoMaster;
 import jp.co.saison.tvc.anythingok.web.LotoNumbersChoiceForm;
 
 @Service
 public class LotoNumbersService {
 
 	private List<LotoNumbersChoiceForm> list;
+    private LotoMaster loto;
 
 	public LotoNumbersService() {
 		list = new ArrayList<>();
+		loto = new LotoMaster();
+		loto.setLoto_index("3456");
+		loto.setLoto_date("2018/05/14");
+		loto.setCarry_over("123456789");
 	}
 
 	public List<Integer> getPredictingNumbers() {
@@ -35,5 +41,9 @@ public class LotoNumbersService {
 
 	public void buy() {
 		list.clear();
+	}
+
+	public LotoMaster getLoto() {
+		return loto;
 	}
 }

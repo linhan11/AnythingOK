@@ -27,6 +27,7 @@ public class LotoNumbersController {
     	model.addAttribute("predictingNumbers", service.getPredictingNumbers());
     	model.addAttribute("form", form);
     	model.addAttribute("list", service.getList());
+    	model.addAttribute("loto", service.getLoto());
 		return "loto_numbers/choice";
 	}
 

@@ -8,7 +8,7 @@
 <div th:replace="common/header :: top-navigation">...</div>
 
 <div class="container">
-    <h1>ロト6 予想＆当選管理システム</h1>
+    <h1 th:text="'第' + ${loto.loto_index} + '回 ロト6 抽選日：'  + ${loto.loto_date} + ' キャリーオーバー：' + ${loto.carry_over} + '円'">ロト6 予想＆当選管理システム</h1>
     <p>
         <span sec:authentication="principal.user.username">duke</span>さんログイン中。
     </p>
