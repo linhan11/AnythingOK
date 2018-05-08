@@ -31,12 +31,13 @@ public class LotoHistory {
     private User user;
     private String loto_date;
     private String victory_number;
+    private String purchased_result;
+    private String purchased_money;    
     
 	public LotoHistory(User user, String loto_index) {
 		this.user_id = user.getUsername();
 		this.user = user;
 		this.loto_index = loto_index;
-	}
-    
-    
+	}     
+
 }
