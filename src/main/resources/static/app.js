@@ -9,3 +9,13 @@ $(function(){
 		}
 	});
 });
+
+$(function(){
+	$(document).ready(function() {
+		$("[id^=fuwa]").jqFloat({
+			width: 25,
+			height: 25,
+			speed: 3000
+		});
+	});
+});

@@ -37,6 +37,223 @@ body { padding-top: 70px; }
   text-shadow: none !important;
 }
 
+#fuwa0 {
+	position : absolute;
+	top : 75px;
+    left : 50px;
+}
+#fuwa1 {
+	position : absolute;
+	top : 75px;
+    left : 125px;
+}
+#fuwa2 {
+	position : absolute;
+	top : 75px;
+    left : 200px;
+}
+#fuwa3 {
+	position : absolute;
+	top : 75px;
+    left : 275px;
+}
+#fuwa4 {
+	position : absolute;
+	top : 75px;
+    left : 350px;
+}
+#fuwa5 {
+	position : absolute;
+	top : 75px;
+    left : 425px;
+}
+#fuwa6 {
+	position : absolute;
+	top : 150px;
+    left : 40px;
+}
+#fuwa7 {
+	position : absolute;
+	top : 150px;
+    left : 80px;
+}
+#fuwa8 {
+	position : absolute;
+	top : 150px;
+    left : 120px;
+}
+#fuwa9 {
+	position : absolute;
+	top : 150px;
+    left : 160px;
+}
+#fuwa10 {
+	position : absolute;
+	top : 150px;
+    left : 200px;
+}
+#fuwa11 {
+	position : absolute;
+	top : 150px;
+    left : 240px;
+}
+#fuwa12 {
+	position : absolute;
+	top : 150px;
+    left : 280px;
+}
+#fuwa13 {
+	position : absolute;
+	top : 150px;
+    left : 320px;
+}
+#fuwa14 {
+	position : absolute;
+	top : 150px;
+    left : 360px;
+}
+#fuwa15 {
+	position : absolute;
+	top : 150px;
+    left : 400px;
+}
+#fuwa16 {
+	position : absolute;
+	top : 150px;
+    left : 440px;
+}
+#fuwa17 {
+	position : absolute;
+	top : 150px;
+    left : 480px;
+}
+#fuwa18 {
+	position : absolute;
+	top : 200px;
+    left : 40px;
+}
+#fuwa19 {
+	position : absolute;
+	top : 200px;
+    left : 80px;
+}
+#fuwa20 {
+	position : absolute;
+	top : 200px;
+    left : 120px;
+}
+#fuwa21 {
+	position : absolute;
+	top : 200px;
+    left : 160px;
+}
+#fuwa22 {
+	position : absolute;
+	top : 200px;
+    left : 200px;
+}
+#fuwa23 {
+	position : absolute;
+	top : 200px;
+    left : 240px;
+}
+#fuwa24 {
+	position : absolute;
+	top : 200px;
+    left : 280px;
+}
+#fuwa25 {
+	position : absolute;
+	top : 200px;
+    left : 320px;
+}
+#fuwa26 {
+	position : absolute;
+	top : 200px;
+    left : 360px;
+}
+#fuwa27 {
+	position : absolute;
+	top : 200px;
+    left : 400px;
+}
+#fuwa28 {
+	position : absolute;
+	top : 200px;
+    left : 440px;
+}
+#fuwa29 {
+	position : absolute;
+	top : 200px;
+    left : 480px;
+}
+#fuwa30 {
+	position : absolute;
+	top : 250px;
+    left : 40px;
+}
+#fuwa31 {
+	position : absolute;
+	top : 250px;
+    left : 80px;
+}
+#fuwa32 {
+	position : absolute;
+	top : 250px;
+    left : 120px;
+}
+#fuwa33 {
+	position : absolute;
+	top : 250px;
+    left : 160px;
+}
+#fuwa34 {
+	position : absolute;
+	top : 250px;
+    left : 200px;
+}
+#fuwa35 {
+	position : absolute;
+	top : 250px;
+    left : 240px;
+}
+#fuwa36 {
+	position : absolute;
+	top : 250px;
+    left : 280px;
+}
+#fuwa37 {
+	position : absolute;
+	top : 250px;
+    left : 320px;
+}
+#fuwa38 {
+	position : absolute;
+	top : 250px;
+    left : 360px;
+}
+#fuwa39 {
+	position : absolute;
+	top : 250px;
+    left : 400px;
+}
+#fuwa40 {
+	position : absolute;
+	top : 250px;
+    left : 440px;
+}
+#fuwa41 {
+	position : absolute;
+	top : 250px;
+    left : 480px;
+}
+#fuwa42 {
+	position : absolute;
+	top : 250px;
+    left : 520px;
+}
+
+
 .fuwafuwa1 {
 	-webkit-animation-name:fuwafuwa1;
 	-webkit-animation-duration:4s;
