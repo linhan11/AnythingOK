@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.co.saison.tvc.anythingok.domain.LotoHistory;
+
 import jp.co.saison.tvc.anythingok.domain.LotoMaster;
 import jp.co.saison.tvc.anythingok.web.LotoNumbersChoiceForm;
 
@@ -21,9 +22,14 @@ public class LotoNumbersService {
     LotoHistoryService lotoHistoryService;
     
 	private List<LotoNumbersChoiceForm> list;
+    private LotoMaster loto;
 
 	public LotoNumbersService() {
 		list = new ArrayList<>();
+		loto = new LotoMaster();
+		loto.setLoto_index("3456");
+		loto.setLoto_date("2018/05/14");
+		loto.setCarry_over("123456789");
 	}
 
 	public List<Integer> getPredictingNumbers() {
@@ -35,6 +41,7 @@ public class LotoNumbersService {
 	}
 
 	public void addList(LotoNumbersChoiceForm form) {
+		form.QuickPick();
 		list.add(new LotoNumbersChoiceForm(form));
 	}
 
@@ -59,5 +66,13 @@ public class LotoNumbersService {
         		.map(e -> Integer.parseInt(e.getKey()))
         		.collect(Collectors.toList());
         return sortedKeys;
+	}
+	
+	public void delete(Integer index) {
+		list.remove(index.intValue());
+	}
+
+	public LotoMaster getLoto() {
+		return loto;
 	}
 }

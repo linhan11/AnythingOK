@@ -8,7 +8,7 @@
 <div th:replace="common/header :: top-navigation">...</div>
 
 <div class="container">
-    <h1>ロト6 予想＆当選管理システム</h1>
+    <h1 th:text="'第' + ${loto.loto_index} + '回 ロト6 抽選日：'  + ${loto.loto_date} + ' キャリーオーバー：' + ${loto.carry_over} + '円'">ロト6 予想＆当選管理システム</h1>
     <p>
         <span sec:authentication="principal.user.username">duke</span>さんログイン中。
     </p>
@@ -27,11 +27,11 @@
  			<form th:action="@{/loto_numbers/create}" class="form-horizontal" method="post">
 				<fieldset>
 				<div class="btn-group-toggle" data-toggle="buttons" id="numbers_group">
-						<label th:each="number, stat : ${predictingNumbers}" th:if="${stat.index} lt 6" class='btn btn-primary btn-lg btn-circle' >
+						<label th:each="number, stat : ${predictingNumbers}" th:if="${stat.index} lt 6" class='btn btn-primary btn-lg btn-circle' th:id="'fuwa' + ${stat.index}" >
 						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
 						</label>
 						<p></p>
-						<label th:each="number, stat : ${predictingNumbers}" th:unless="${stat.index} lt 6" class='btn btn-default btn-sm btn-circle' >
+						<label th:each="number, stat : ${predictingNumbers}" th:unless="${stat.index} lt 6" class='btn btn-default btn-sm btn-circle' th:id="'fuwa' + ${stat.index}" >
 						<input  type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
 						</label>
 				</div>
@@ -43,17 +43,22 @@
 			</form>
 		</div>
 		<div class="col-sm-6">
-			<form th:action="@{/loto_numbers/buy}" class="form-horizontal" method="post">
-		        <table class="table table-striped table-bordered table-hover">
-		            <tr th:each="item : ${list}">
-		                <td th:each="checked : ${item.inputMultiCheck}" th:text="${checked}">1</td>
-		            </tr>
-		        </table>
-				<p></p>
-				<p>
-					<input type="submit" class="btn btn-success" value="購入">
-				</p>
-			</form>
+	        <table class="table table-striped table-bordered table-hover">
+	            <tr th:each="item,st : ${list}">
+	                <td th:each="checked : ${item.inputMultiCheck}" th:text="${checked}">1</td>
+	                <td>
+	                    <form th:action="@{/loto_numbers/delete}" method="post">
+	                        <input class="btn btn-danger" type="submit" value="削除">
+	                        <input type="hidden" name="index" th:value="${st.index}">
+	                    </form>
+	                </td>
+	            </tr>
+			</table>
+			<p>
+				<form th:action="@{/loto_numbers/buy}" class="form-horizontal" method="post">
+		            <input type="submit" class="btn btn-success" value="購入">
+				</form>
+			</p>
 		</div>
 	</div>
 </div>
@@ -63,5 +68,7 @@
         th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 <script type="text/javascript" src="/app.js"
         th:src="@{/app.js}"></script>
+<script type="text/javascript" src="/jqfloat.js"
+        th:src="@{/jqfloat.js}"></script>
 </body>
 </html>

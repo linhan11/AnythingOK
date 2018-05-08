@@ -11,6 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jp.co.saison.tvc.anythingok.domain.LotoHistory;
 import jp.co.saison.tvc.anythingok.service.LoginUserDetails;
@@ -35,6 +36,7 @@ public class LotoNumbersController {
     	model.addAttribute("predictingNumbers", service.getPredictingNumbers());
     	model.addAttribute("form", form);
     	model.addAttribute("list", service.getList());
+    	model.addAttribute("loto", service.getLoto());
 		return "loto_numbers/choice";
 	}
 
@@ -43,6 +45,7 @@ public class LotoNumbersController {
         if (result.hasErrors()) {
             return choice(form, model);
         }
+
         service.addList(form);
     	return "redirect:/loto_numbers/choice";
     }
@@ -57,6 +60,10 @@ public class LotoNumbersController {
         service.buy(history);
     	return "redirect:/loto_numbers/choice";
     }
-    
 
+    @PostMapping("/loto_numbers/delete")
+    String delete(@RequestParam Integer index) {
+    	service.delete(index);
+    	return "redirect:/loto_numbers/choice";
+    }
 }
