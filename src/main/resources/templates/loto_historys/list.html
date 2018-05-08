@@ -68,6 +68,8 @@
                 <th>抽選日</th>
                 <th>購入番号</th>
                 <th>当選番号</th>
+                <th>当選結果</th>
+                <th>当選金額</th>
                 <th>購入者</th>
                 <th colspan="2">編集</th>
             </tr>
@@ -76,8 +78,10 @@
                 <td th:text="${loto_history.loto_index}">第124回</td>
                 <td th:text="${loto_history.loto_date}">2018年4月1日</td>
                 <td th:text="${loto_history.purchased_no}">1,2,3,4,5</td>
-                <td th:text="${loto_history.victory_number}">1,2,3,4,5</td>
-                <td th:text="${loto_history.user.username}">duke</td>
+                <td th:text="${loto_history.victory_number}"></td>
+                <td th:text="${loto_history.purchased_result}"></td>
+                <td th:text="${loto_history.purchased_money}"></td>
+                <td th:text="${loto_history.user.username}"></td>
                 <td>
                     <form th:action="@{/loto_historys/edit}" method="get">
                         <input class="btn btn-default" type="submit" name="form" value="編集">

@@ -29,4 +29,6 @@ public class LotoHistory {
     private User user;
     private String loto_date;
     private String victory_number;
+    private String purchased_result;
+    private String purchased_money;
 }

@@ -15,5 +15,8 @@ CREATE TABLE loto_historys (
 	loto_index VARCHAR(30),
 	loto_date VARCHAR(30),
 	victory_number VARCHAR(30),
-	purchased_no VARCHAR(30)
+	purchased_no VARCHAR(30),
+	purchased_result VARCHAR(30),
+	purchased_money VARCHAR(30),
+
 	);
