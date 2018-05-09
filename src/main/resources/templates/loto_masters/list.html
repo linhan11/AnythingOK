@@ -36,11 +36,17 @@
                 <th>回数</th>
                 <th>抽選日</th>
                 <th>当選番号</th>
+                <th>当選賞金(1等,2等,3等,4等,5等)</th>
+                <th>当選口数(1等,2等,3等,4等,5等)</th>
+                <th>キャリーオーバー</th>
             </tr>
             <tr th:each="loto_master : ${loto_masters}">
                 <td th:text="${loto_master.loto_index}">第124回</td>
                 <td th:text="${loto_master.loto_date}">2018年4月1日</td>
                 <td th:text="${loto_master.victory_number}">1,2,3,4,5</td>
+                <td th:text="${loto_master.victory_amount}"></td>
+                <td th:text="${loto_master.victory_people}"></td>
+                <td th:text="${loto_master.carry_over}"></td>
             </tr>
         </table>
 
