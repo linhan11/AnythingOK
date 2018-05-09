@@ -93,7 +93,7 @@ public class LotoHistoryController {
         return "redirect:/loto_historys";
     }
 
-    @GetMapping(path = "edit", params = "goToTop")
+    @PostMapping(path = "edit", params = "goToTop")
     String goToTop() {
         return "redirect:/loto_historys";
     }
