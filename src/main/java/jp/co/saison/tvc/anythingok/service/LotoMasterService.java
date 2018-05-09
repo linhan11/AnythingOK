@@ -28,4 +28,8 @@ public class LotoMasterService {
     public Page<LotoMaster> findAll(Pageable pageable) {
         return lotoMasterRepository.findAll(pageable);
     }
+
+    public LotoMaster NextLoto(String today) {
+        return lotoMasterRepository.NextLoto(today);
+    }
 }
