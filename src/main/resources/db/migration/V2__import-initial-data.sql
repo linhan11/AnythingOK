@@ -1279,4 +1279,4 @@ INSERT INTO loto_masters (loto_index, loto_date, victory_number, victory_amount,
 INSERT INTO loto_masters (loto_index, loto_date, victory_number, victory_amount, victory_people, carry_over) VALUES ('1273', '2018/04/30', '18,20,22,26,34,37,04', '0,9101500,358900,8500,1000', '0,13,356,15759,253524', '1486043254');
 INSERT INTO loto_masters (loto_index, loto_date, victory_number, victory_amount, victory_people, carry_over) VALUES ('1274', '2018/05/03', '03,15,18,23,31,37,34', '206748000,5352800,164200,4800,1000', '9,21,739,26657,354582', '0');
 INSERT INTO loto_masters (loto_index, loto_date, victory_number, victory_amount, victory_people, carry_over) VALUES ('1275', '2018/05/07', '07,19,21,28,40,41,03', '200000000,8181300,257300,7000,1000', '1,9,309,11991,179635', '45432652');
-INSERT INTO loto_masters (loto_index, loto_date, victory_number, victory_amount, victory_people, carry_over) VALUES ('1276', '2018/05/10', '', '', '', '45432652');
+INSERT INTO loto_masters (loto_index, loto_date, victory_number, victory_amount, victory_people, carry_over) VALUES ('1276', '2018/05/10', '0,0,0,0,0,0,0', '0,0,0,0,0', '0,0,0,0,0', '45432652');
