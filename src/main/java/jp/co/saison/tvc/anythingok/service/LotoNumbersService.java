@@ -1,5 +1,7 @@
 package jp.co.saison.tvc.anythingok.service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -68,7 +70,15 @@ public class LotoNumbersService {
 	}
 
 	public LotoMaster getLoto() {
-		loto = lotoMasterService.NextLoto("2018/05/09");
+		LocalDateTime now = LocalDateTime.now();
+		if (loto == null) {
+			loto = lotoMasterService.NextLoto(now.format(DateTimeFormatter.ofPattern("yyyy/MM/dd")));
+		} else {
+			String closing = loto.getLoto_date() + " 18:29:59";
+			if (closing.compareTo(now.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"))) < 0) {
+				loto = lotoMasterService.NextLoto(now.format(DateTimeFormatter.ofPattern("yyyy/MM/dd")));
+			}
+		}
 		return loto;
 	}
 }
