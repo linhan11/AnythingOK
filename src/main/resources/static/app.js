@@ -4,8 +4,14 @@ $(function(){
 
 		if(countchecked >= 6) {
 			$('#numbers_group input[type=checkbox]').not(':checked').prop('disabled',true);
+			$('#numbers_group input[type=checkbox]').not(':checked').parent().prop('disabled',true);
+			$('#numbers_group input[type=checkbox]').not(':checked').parent().attr("disabled","disabled");
+			$('#numbers_group input[type=checkbox]').not(':checked').parent().toggleClass("hvr", false);
 		}else{
 			$('#numbers_group input[type=checkbox]').not(':checked').prop('disabled',false);
+			$('#numbers_group input[type=checkbox]').not(':checked').parent().prop('disabled',false);
+			$('#numbers_group input[type=checkbox]').not(':checked').parent().removeAttr("disabled");
+			$('#numbers_group input[type=checkbox]').not(':checked').parent().toggleClass("hvr", true);
 		}
 	});
 });

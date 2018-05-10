@@ -27,18 +27,17 @@
  			<form th:action="@{/loto_numbers/create}" class="form-horizontal" method="post">
 				<fieldset>
 				<div class="btn-group-toggle" data-toggle="buttons" id="numbers_group">
-						<label th:each="number, stat : ${predictingNumbers}" th:if="${stat.index} lt 6" class='btn btn-primary btn-lg btn-circle' th:id="'fuwa' + ${stat.index}" >
-						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
+						<label class='btn btn-primary btn-lg hvr hvr-buzz' th:each="number, stat : ${predictingNumbers}" th:if="${stat.index} lt 6" th:id="'fuwa' + ${stat.index}" th:for="'num' + ${stat.index}" >
+						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:field="${form.inputMultiCheck}" th:id="'num' + ${stat.index}"  th:text="${number}"/>
 						</label>
-						<p></p>
-						<label th:each="number, stat : ${predictingNumbers}" th:unless="${stat.index} lt 6" class='btn btn-default btn-sm btn-circle' th:id="'fuwa' + ${stat.index}" >
-						<input  type='checkbox' name='inputMultiCheck' th:value="${number}" th:text="${number}" th:field="${form.inputMultiCheck}" />
+						<label class="btn btn-info btn-sm hvr hvr-pulse" th:each="number, stat : ${predictingNumbers}" th:unless="${stat.index} lt 6" th:id="'fuwa' + ${stat.index}" th:for="'num' + ${stat.index}" >
+						<input type='checkbox' name='inputMultiCheck' th:value="${number}" th:field="${form.inputMultiCheck}" th:id="'num' + ${stat.index}"  th:text="${number}"/>
 						</label>
 				</div>
 				</fieldset>
 				<p></p>
 				<p>
-					<input type="submit" class="btn btn-success" value="確定">
+					<input type="submit" class="btn btn-success hvr-shrink" value="確定">
 				</p>
 			</form>
 		</div>
