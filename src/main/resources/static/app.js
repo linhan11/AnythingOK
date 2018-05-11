@@ -14,7 +14,7 @@ $(function(){
 			$('#numbers_group input[type=checkbox]').not(':checked').parent().toggleClass("hvr", true);
 		}
 		$('#numbers_group input[type=checkbox]').not(':checked').parent().css({'transform':'rotate(0deg)', 'font-weight':'normal'});
-		$('#numbers_group input[type=checkbox]:checked').parent().css({'transform':'rotate(20deg)', 'font-weight':'bold'});
+		$('#numbers_group input[type=checkbox]:checked').parent().css({'transform':'rotate(12deg)', 'font-weight':'bold'});
 	});
 });
 

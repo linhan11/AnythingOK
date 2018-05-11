@@ -8,20 +8,27 @@
 <div th:replace="common/header :: top-navigation">...</div>
 
 <div class="container">
-    <h1 th:text="'第' + ${loto.loto_index} + '回 ロト6 抽選日：'  + ${loto.loto_date} + ' キャリーオーバー：' + ${loto.carry_over} + '円'">ロト6 予想＆当選管理システム</h1>
+	<div class="glow_banner">
+	  <span class="catch" th:text="'第' + ${loto.loto_index} + '回 ロト6 抽選日：'  + ${loto.loto_date}">1</span>
+	  <span th:text="' キャリーオーバー：' + ${#numbers.formatInteger(loto.carry_over, 3, 'COMMA')} + '円'">1</span>
+	</div>
+<!--     <h1 align="center" class="loto6-title" th:text="'第' + ${loto.loto_index} + '回 ロト6 抽選日：'  + ${loto.loto_date}">ロト6 予想＆当選管理システム</h1>
+    <h1 align="center" class="loto6-title" th:text="' キャリーオーバー：' + ${loto.carry_over} + '円'">ロト6 予想＆当選管理システム</h1>
+    -->
     <p>
         <span sec:authentication="principal.user.username">duke</span>さんログイン中。
     </p>
     <!-- <form th:action="@{/logout}" method="post"><input type="submit" class="btn btn-default btn-xs" value="ログアウト"></form> -->
 
 	<div class="row">
-		<div class="col-sm-6">
-			<p class="lead">予想ナンバー</p>
+		<div class="col-sm-6 baloon1">
+			予想ナンバー
 		</div>
-		<div class="col-sm-6">
-			<p class="lead">選択ナンバー</p>
+		<div class="col-sm-6 baloon1">
+			選択ナンバー
 		</div>
 	</div>
+	<p></p>
 	<div class="row">
 		<div class="col-sm-6">
  			<form th:action="@{/loto_numbers/create}" class="form-horizontal" method="post">
@@ -42,6 +49,7 @@
 			</form>
 		</div>
 		<div class="col-sm-6">
+			<p></p>
 	        <table class="table table-striped table-bordered table-hover">
 	            <tr th:each="item,st : ${list}">
 	                <td th:each="checked : ${item.inputMultiCheck}" th:text="${checked}">1</td>
