@@ -56,7 +56,9 @@ public class LotoNumbersController {
         if (result.hasErrors()) {
             return choice(form, model);
         }
-        LotoHistory history = new LotoHistory(userDetails.getUser(), "1270");
+        LotoHistory history = new LotoHistory(userDetails.getUser()
+        		, service.getLoto().getLoto_index()
+        		, service.getLoto().getLoto_date());
         service.buy(history);
     	return "redirect:/loto_numbers/choice";
     }

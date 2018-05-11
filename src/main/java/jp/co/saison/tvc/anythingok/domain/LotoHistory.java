@@ -34,10 +34,14 @@ public class LotoHistory {
     private String purchased_result;
     private String purchased_money;    
     
-	public LotoHistory(User user, String loto_index) {
+	public LotoHistory(User user, String loto_index, String loto_date) {
 		this.user_id = user.getUsername();
 		this.user = user;
 		this.loto_index = loto_index;
+		this.loto_date = loto_date;
+		this.victory_number = "******";
+		this.purchased_result = "******";
+		this.purchased_money = "******";
 	}     
 
 }
