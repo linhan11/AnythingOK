@@ -53,16 +53,20 @@ public class LotoNumbersService {
 	}
 
 	private List<Integer> Predict() {
-        List<LotoMaster> lotoMasters = lotoMasterService.findAll();
-        Map<String, Long> victoryNumbers = lotoMasters.stream()
-        		.map(e -> e.getVictory_number().split(","))
-        		.flatMap(Arrays::stream)
-        		.collect(Collectors.groupingBy(e -> e, Collectors.counting()));
-        List<Integer> sortedKeys = victoryNumbers.entrySet().stream()
-        		.sorted(Map.Entry.<String, Long>comparingByValue().reversed())
-        		.map(e -> Integer.parseInt(e.getKey()))
-        		.collect(Collectors.toList());
-        return sortedKeys;
+		List<LotoMaster> lotoMasters = lotoMasterService.findAll();
+		List<String> stringMumbers = lotoMasters.stream()
+			.map(e -> e.getVictory_number().split(","))
+			.flatMap(Arrays::stream)
+			.collect(Collectors.toList());
+		Map<Integer, Long> victoryNumbers = stringMumbers.stream()
+			.filter(e -> !e.isEmpty())
+			.map(e -> Integer.parseInt(e))
+			.collect(Collectors.groupingBy(e -> e, Collectors.counting()));
+		List<Integer> sortedKeys = victoryNumbers.entrySet().stream()
+			.sorted(Map.Entry.<Integer, Long>comparingByValue().reversed())
+			.map(e -> e.getKey())
+			.collect(Collectors.toList());
+		return sortedKeys;
 	}
 
 	public void delete(Integer index) {
