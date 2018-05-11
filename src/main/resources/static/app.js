@@ -13,15 +13,19 @@ $(function(){
 			$('#numbers_group input[type=checkbox]').not(':checked').parent().removeAttr("disabled");
 			$('#numbers_group input[type=checkbox]').not(':checked').parent().toggleClass("hvr", true);
 		}
+		$('#numbers_group input[type=checkbox]').not(':checked').parent().css({'transform':'rotate(0deg)', 'font-weight':'normal'});
+		$('#numbers_group input[type=checkbox]:checked').parent().css({'transform':'rotate(20deg)', 'font-weight':'bold'});
 	});
 });
 
 $(function(){
 	$(document).ready(function() {
-		$("[id^=fuwa]").jqFloat({
-			width: 25,
-			height: 25,
-			speed: 3000
+		$("[id^=fuwa]").each(function() {
+			$(this).jqFloat({
+				width: 25,
+				height: 35,
+				speed: 2500
+			});
 		});
 	});
 });
